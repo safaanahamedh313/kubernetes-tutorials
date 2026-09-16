@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx-pod
+  name: nginx-pod
+spec:
+  replicas: 20
+  selector:
+    matchLabels:
+      app: nginx-pod
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: nginx-pod
+    spec:
+      containers:
+      - image: nginx:alpine3.18
+        name: nginx
+        resources: {}
+  strategy:
+    type: Recreate
